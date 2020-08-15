@@ -2,14 +2,14 @@ import React from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 import defaultStyles from "../constants/default-styles";
 
-const CreateNewPostScreen = (props) => {
+const LoginScreen = (props) => {
   return (
     <View style={styles.screen}>
-      <Text>CreateNewPostScreen</Text>
+      <Text>LoginScreen</Text>
       <Button
-        title="individual post"
+        title="profile"
         onPress={() => {
-          props.navigation.push("CreateNewPost");
+          props.navigation.replace("Profile");
         }}
       ></Button>
     </View>
@@ -20,4 +20,4 @@ const styles = StyleSheet.create({
   screen: defaultStyles.screen,
 });
 
-export default CreateNewPostScreen;
+export default LoginScreen;
