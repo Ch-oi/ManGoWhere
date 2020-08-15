@@ -3,9 +3,14 @@ import { View, Text, StyleSheet } from "react-native";
 import defaultStyles from "../constants/default-styles";
 
 const PostScreen = (props) => {
+  const pid = props.navigation.getParam("id");
+  const title = props.navigation.getParam("title");
+  const body = props.navigation.getParam("body");
+
   return (
     <View style={styles.screen}>
-      <Text>PostScreen</Text>
+      <Text>{title}</Text>
+      <Text>{body}</Text>
     </View>
   );
 };
