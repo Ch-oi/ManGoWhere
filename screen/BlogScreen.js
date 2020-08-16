@@ -1,23 +1,15 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  FlatList,
-  Dimensions,
-  TouchableOpacity,
-} from "react-native";
+import { View, StyleSheet, FlatList } from "react-native";
 import defaultStyles from "../constants/default-styles";
 import { POSTS } from "../data/dummy-data";
-import Colors from "../constants/Colors";
+import PostGridTile from "../components/PostGridTile";
 
 const BlogScreen = (props) => {
   const renderGridItem = (itemData) => {
-    console.log(itemData);
     return (
-      <TouchableOpacity
-        style={styles.postItem}
-        onPress={() => {
+      <PostGridTile
+        item={itemData.item}
+        onSelect={() => {
           props.navigation.navigate({
             routeName: "Post",
             params: {
@@ -25,12 +17,7 @@ const BlogScreen = (props) => {
             },
           });
         }}
-      >
-        <View>
-          <Text>{itemData.item.title}</Text>
-          <Text>{itemData.item.body}</Text>
-        </View>
-      </TouchableOpacity>
+      />
     );
   };
 
@@ -57,11 +44,6 @@ const BlogScreen = (props) => {
 const styles = StyleSheet.create({
   screen: defaultStyles.screen,
   postsContainer: { width: "95%" },
-  postItem: {
-    flex: 1,
-    margin: 10,
-    height: Dimensions.get("window").height * 0.2,
-  },
 });
 
 export default BlogScreen;
