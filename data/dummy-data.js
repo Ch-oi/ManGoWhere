@@ -61,9 +61,18 @@ export const POSTDETAILS = [
         blog_id: 1,
       },
       {
-        id: 1,
+        id: 2,
         user_id: 1,
-        body: "comment1",
+        body: "comment2",
+        ref_comment_id: 1,
+        user_name: "Edwin123",
+        blog_id: 1,
+      },
+      {
+        id: 3,
+        user_id: 1,
+        body: "comment3",
+        ref_comment_id: 1,
         user_name: "Edwin123",
         blog_id: 1,
       },
@@ -71,5 +80,30 @@ export const POSTDETAILS = [
     "Edwin123",
     "Art Lane",
     [{ id: 1, user_id: 1 }]
+  ),
+  new PostDetails(
+    2,
+    "Cruise Tour",
+
+    "\n        Pre-dinner Sunset Cruise\n        • Watch the world's greatest view turns into the world's greatest light show\n        \n        Harbour Night Cruise\n        • Relax and enjoy the world famous glittering harbour views by night\n        \n        Symphony of Lights Cruise\n        • The cruise climatises as the Symphony of Lights show brightens up the skyline",
+    2,
+    [],
+    [
+      {
+        category: "Outdoor",
+      },
+      {
+        category: "Sports",
+      },
+    ],
+    [],
+    "Pullip123",
+    "Western District Waterfront Pier",
+    [
+      {
+        id: 2,
+        user_id: 1,
+      },
+    ]
   ),
 ];

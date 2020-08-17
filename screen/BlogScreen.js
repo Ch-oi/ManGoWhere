@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, FlatList } from "react-native";
 import defaultStyles from "../constants/default-styles";
 import { POSTS } from "../data/dummy-data";
-import PostGridTile from "../components/PostGridTile";
+import PostGridTile from "../components/Post/PostGridTile";
 
 const BlogScreen = (props) => {
   const renderGridItem = (itemData) => {
