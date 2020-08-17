@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Dimensions,
 } from "react-native";
+import defaultStyles from "../../constants/default-styles";
 
 const PostGridTile = (props) => {
   return (
@@ -23,16 +24,15 @@ const PostGridTile = (props) => {
 const styles = StyleSheet.create({
   postItem: {
     flex: 1,
-    margin: 10,
+    margin: 5,
     height: Dimensions.get("window").height * 0.2,
   },
   container: {
+    ...defaultStyles.container,
+    height: Dimensions.get("window").height * 0.1,
+    marginVertical: 5,
     flex: 1,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: "#ccc",
     justifyContent: "space-around",
-    alignItems: "center",
   },
 });
 
