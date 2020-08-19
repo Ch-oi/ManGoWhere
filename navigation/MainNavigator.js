@@ -11,7 +11,7 @@ import MainMapScreen from "../screen/MainMapScreen";
 import BlogScreen from "../screen/BlogScreen";
 import CreateNewPostScreen from "../screen/CreateNewPostScreen";
 import CreateNewLocationScreen from "../screen/CreateNewLocationScreen";
-import ChatroomScreen from "../screen/ChatroomScreen";
+import ChatroomListScreen from "../screen/Chatroom/ChatroomListScreen";
 import ProfileScreen from "../screen/ProfileScreen";
 import PostScreen from "../screen/PostScreen";
 import LoginScreen from "../screen/LoginScreen";
@@ -23,10 +23,10 @@ const MapNavigator = createStackNavigator(
     Blog: BlogScreen,
     CreateNewPost: CreateNewPostScreen,
     CreateNewLocation: CreateNewLocationScreen,
-    Chatroom: ChatroomScreen,
+    ChatroomList: ChatroomListScreen,
     Post: PostScreen,
   },
-  { ...defaultStyles.header }
+  { initialRouteName: "MainMap", ...defaultStyles.header }
 );
 
 const LoginNavigator = createStackNavigator(
@@ -113,8 +113,8 @@ const ButtomNavigator = createBottomTabNavigator(
         },
       },
     },
-    Chatroom: {
-      screen: ChatroomScreen,
+    ChatroomList: {
+      screen: ChatroomListScreen,
       navigationOptions: {
         tabBarIcon: (tabInfo) => {
           return (

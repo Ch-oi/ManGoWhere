@@ -1,14 +1,25 @@
-import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
 import MainNavigator from "./navigation/MainNavigator";
 import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
-import { enableScreens } from "react-native-screens";
 // import logger from "redux-logger";
 import postsReducer from "./store/reducers/post";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { enableScreens, useScreens } from "react-native-screens";
+import * as Font from "expo-font";
+import { AppLoading } from "expo";
+
+import MainNavigator from "./navigation/MainNavigator";
 
 enableScreens();
+useScreens();
+
+const fetchFonts = () => {
+  return Font.loadAsync({
+    "aller-rg": require("./assets/fonts/Aller_Rg.ttf"),
+    "aller-bd": require("./assets/fonts/Aller_Bd.ttf"),
+  });
+};
 
 const rootReducer = combineReducers({
   posts: postsReducer,
@@ -17,11 +28,22 @@ const rootReducer = combineReducers({
 const store = createStore(rootReducer);
 
 export default function App() {
+  // <View style={styles.container}>
+  //   <Text>Open up App.js to start working on your app!</Text>
+  //   <StatusBar style="auto" />
+  // </View>
+
+  const [fontLoaded, setFontLoaded] = useState(false);
+
+  if (!fontLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setFontLoaded(true)}
+      />
+    );
+  }
   return (
-    // <View style={styles.container}>
-    //   <Text>Open up App.js to start working on your app!</Text>
-    //   <StatusBar style="auto" />
-    // </View>
     <Provider store={store}>
       <MainNavigator />
     </Provider>

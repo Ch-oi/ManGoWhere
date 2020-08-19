@@ -19,9 +19,21 @@ const MainMapScreen = (props) => {
         }}
       ></Button>
       <Button
+        title="blog"
+        onPress={() => {
+          props.navigation.navigate({ routeName: "Blog" });
+        }}
+      ></Button>
+      <Button
         title="chatroom"
         onPress={() => {
           props.navigation.navigate({ routeName: "Chatroom" });
+        }}
+      ></Button>
+      <Button
+        title="login"
+        onPress={() => {
+          props.navigation.navigate({ routeName: "Login" });
         }}
       ></Button>
     </View>

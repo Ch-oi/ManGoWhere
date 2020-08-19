@@ -40,7 +40,7 @@ const BlogScreen = (props) => {
 };
 
 // BlogScreen.navigationOptions = {
-//   headerTitle: "dick",
+//   headerTitle: "nice picture",
 //   headerStyle: {
 //     backgroundColor: Colors.primary,
 //   },
