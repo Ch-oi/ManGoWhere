@@ -1,6 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Text, Image } from "react-native";
 import defaultStyles from "../../constants/default-styles";
+import { AllerRg, AllerBd } from "../custom-text";
 
 const MainPost = ({ post }) => {
   return (
@@ -9,19 +10,19 @@ const MainPost = ({ post }) => {
         <Image key={i} style={styles.image} source={{ uri: img.url }} />
       ))}
 
-      <Text style={styles.title}>{post.locationName}</Text>
-      <Text>{post.body}</Text>
+      <AllerBd style={styles.title}>{post.locationName}</AllerBd>
+      <AllerRg>{post.body}</AllerRg>
       <View style={{ ...styles.rowList, justifyContent: "flex-start" }}>
         {post.categories.map((cat, i) => (
-          <Text style={styles.text} key={i}>
+          <AllerRg style={styles.text} key={i}>
             #{cat.category}
-          </Text>
+          </AllerRg>
         ))}
       </View>
       <View style={{ ...styles.rowList, justifyContent: "flex-end" }}>
-        <Text style={styles.text}>by {post.userName}</Text>
+        <AllerRg style={styles.text}>by {post.userName}</AllerRg>
       </View>
-      <Text> {post.created_at}</Text>
+      <AllerRg> {post.created_at}</AllerRg>
     </View>
   );
 };
@@ -29,7 +30,7 @@ const MainPost = ({ post }) => {
 const styles = StyleSheet.create({
   container: defaultStyles.container,
   title: {
-    fontSize: 15,
+    fontSize: 18,
   },
   rowList: {
     flexDirection: "row",

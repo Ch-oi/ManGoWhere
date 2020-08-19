@@ -6,16 +6,17 @@ import {
   StyleSheet,
   Dimensions,
 } from "react-native";
+import { AllerRg } from "../custom-text";
 import defaultStyles from "../../constants/default-styles";
 
 const PostGridTile = (props) => {
   return (
     <TouchableOpacity style={styles.postItem} onPress={props.onSelect}>
       <View style={styles.container}>
-        <Text>{props.item.title}</Text>
-        <Text>{props.item.locationName}</Text>
-        <Text>by {props.item.userName}</Text>
-        <Text> {props.item.created_at}</Text>
+        <AllerRg>{props.item.title}</AllerRg>
+        <AllerRg>{props.item.locationName}</AllerRg>
+        <AllerRg>by {props.item.userName}</AllerRg>
+        <AllerRg> {props.item.created_at}</AllerRg>
       </View>
     </TouchableOpacity>
   );

@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-
 import defaultStyles from '../../constants/default-styles';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { AllerBd } from '../../components/custom-text';
+
 import ChatroomItem from '../../components/Chatroom/ChatroomItem';
 
 const ChatroomScreen = (props) => {
