@@ -1,9 +1,9 @@
 import React from "react";
 import { HeaderButton } from "react-navigation-header-buttons";
-import { FontAwesome } from "@expo/vector-icons";
+import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import Colors from "../constants/Colors";
 
-const CustomHeaderButton = (props) => {
+export const CustomHeaderButton = (props) => {
   return (
     <HeaderButton
       {...props}
@@ -14,4 +14,13 @@ const CustomHeaderButton = (props) => {
   );
 };
 
-export default CustomHeaderButton;
+export const CustomHeaderButton2 = (props) => {
+  return (
+    <HeaderButton
+      {...props}
+      IconComponent={Ionicons}
+      iconSize={23}
+      color={Colors.accent}
+    />
+  );
+};

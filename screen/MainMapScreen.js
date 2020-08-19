@@ -1,39 +1,39 @@
-import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
-import defaultStyles from '../constants/default-styles';
+import React from "react";
+import { View, Text, StyleSheet, Button } from "react-native";
+import defaultStyles from "../constants/default-styles";
 
 const MainMapScreen = (props) => {
   return (
     <View style={styles.screen}>
       <Text>MainMapScreen</Text>
       <Button
-        title='newPost'
+        title="newPost"
         onPress={() => {
-          props.navigation.navigate({ routeName: 'CreateNewPost' });
+          props.navigation.navigate({ routeName: "CreateNewPost" });
         }}
       ></Button>
       <Button
-        title='newLocation'
+        title="newLocation"
         onPress={() => {
-          props.navigation.navigate({ routeName: 'CreateNewLocation' });
+          props.navigation.navigate({ routeName: "CreateNewLocation" });
         }}
       ></Button>
       <Button
-        title='blog'
+        title="blog"
         onPress={() => {
-          props.navigation.navigate({ routeName: 'Blog' });
+          props.navigation.navigate({ routeName: "Blog" });
         }}
       ></Button>
       <Button
-        title='chatroom'
+        title="chatroom"
         onPress={() => {
-          props.navigation.navigate({ routeName: 'Chatroom' });
+          props.navigation.navigate({ routeName: "Chatroom" });
         }}
       ></Button>
       <Button
-        title='login'
+        title="login"
         onPress={() => {
-          props.navigation.navigate({ routeName: 'Login' });
+          props.navigation.navigate({ routeName: "Login" });
         }}
       ></Button>
     </View>

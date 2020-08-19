@@ -1,19 +1,24 @@
-import React from 'react';
-import { View, StyleSheet, FlatList } from 'react-native';
-import defaultStyles from '../constants/default-styles';
-import { POSTS } from '../data/dummy-data';
-import PostGridTile from '../components/Post/PostGridTile';
+import React from "react";
+import { useSelector } from "react-redux";
+import { View, StyleSheet, FlatList, Text } from "react-native";
+import defaultStyles from "../constants/default-styles";
+import PostGridTile from "../components/Post/PostGridTile";
 
 const BlogScreen = (props) => {
+  const allPosts = useSelector((state) => state.posts.posts);
+  const favPosts = useSelector((state) => state.posts.favoritePosts);
+
   const renderGridItem = (itemData) => {
+    const isFav = favPosts.some((post) => post.id === itemData.item.id);
     return (
       <PostGridTile
         item={itemData.item}
         onSelect={() => {
           props.navigation.navigate({
-            routeName: 'Post',
+            routeName: "Post",
             params: {
               ...itemData.item,
+              isFav: isFav,
             },
           });
         }}
@@ -26,7 +31,7 @@ const BlogScreen = (props) => {
       <View style={styles.postsContainer}>
         <FlatList
           keyExtractor={(item) => item.id.toString()}
-          data={POSTS}
+          data={allPosts}
           renderItem={renderGridItem}
         />
       </View>
@@ -43,7 +48,7 @@ const BlogScreen = (props) => {
 
 const styles = StyleSheet.create({
   screen: defaultStyles.screen,
-  postsContainer: { width: '95%' },
+  postsContainer: { width: "95%" },
 });
 
 export default BlogScreen;

@@ -1,19 +1,21 @@
-import React from 'react';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
-import { FontAwesome, Ionicons } from '@expo/vector-icons';
+import React from "react";
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
+import { createBottomTabNavigator } from "react-navigation-tabs";
+import { createDrawerNavigator } from "react-navigation-drawer";
+import { FontAwesome, Ionicons } from "@expo/vector-icons";
 
-import defaultStyles from '../constants/default-styles';
-import Colors from '../constants/Colors';
-import MainMapScreen from '../screen/MainMapScreen';
-import BlogScreen from '../screen/BlogScreen';
-import CreateNewPostScreen from '../screen/CreateNewPostScreen';
-import CreateNewLocationScreen from '../screen/CreateNewLocationScreen';
-import ChatroomListScreen from '../screen/Chatroom/ChatroomListScreen';
-import ProfileScreen from '../screen/ProfileScreen';
-import PostScreen from '../screen/PostScreen';
-import LoginScreen from '../screen/LoginScreen';
+import defaultStyles from "../constants/default-styles";
+import Colors from "../constants/Colors";
+import MainMapScreen from "../screen/MainMapScreen";
+import BlogScreen from "../screen/BlogScreen";
+import CreateNewPostScreen from "../screen/CreateNewPostScreen";
+import CreateNewLocationScreen from "../screen/CreateNewLocationScreen";
+import ChatroomListScreen from "../screen/Chatroom/ChatroomListScreen";
+import ProfileScreen from "../screen/ProfileScreen";
+import PostScreen from "../screen/PostScreen";
+import LoginScreen from "../screen/LoginScreen";
+import ProfileSettingScreen from "../screen/ProfileSettingScreen";
 
 const MapNavigator = createStackNavigator(
   {
@@ -24,7 +26,7 @@ const MapNavigator = createStackNavigator(
     ChatroomList: ChatroomListScreen,
     Post: PostScreen,
   },
-  { initialRouteName: 'MainMap', ...defaultStyles.header }
+  { initialRouteName: "MainMap", ...defaultStyles.header }
 );
 
 const LoginNavigator = createStackNavigator(
@@ -34,7 +36,18 @@ const LoginNavigator = createStackNavigator(
     Blog: BlogScreen,
     Post: PostScreen,
   },
-  { ...defaultStyles.header, initialRouteName: 'Login' }
+  {
+    ...defaultStyles.header,
+    initialRouteName: "Login",
+    navigationOptions: {
+      drawerLabel: " ",
+      drawerIcon: (tabInfo) => {
+        return (
+          <FontAwesome name="user-circle" size={23} color={tabInfo.tintColor} />
+        );
+      },
+    },
+  }
 );
 
 const BlogNavigator = createStackNavigator(
@@ -42,15 +55,36 @@ const BlogNavigator = createStackNavigator(
     Blog: BlogScreen,
     Post: PostScreen,
   },
-  { ...defaultStyles.header, initialRouteName: 'Blog' }
+  { ...defaultStyles.header, initialRouteName: "Blog" }
 );
+
+const ProfileSettingNavigator = createStackNavigator(
+  {
+    Setting: ProfileSettingScreen,
+  },
+  { ...defaultStyles.header, navigationOptions: {} }
+);
+
+const ProfileNavigator = createDrawerNavigator(
+  {
+    Login: { screen: LoginNavigator },
+    Setting: ProfileSettingNavigator,
+  },
+  {
+    contentOptions: {
+      activeTintColor: Colors.accent,
+      inactiveTintColor: "#ccc",
+    },
+  }
+);
+
 const ButtomNavigator = createBottomTabNavigator(
   {
     Map: {
       screen: MapNavigator,
       navigationOptions: {
         tabBarIcon: (tabInfo) => {
-          return <FontAwesome name='map' size={23} color={tabInfo.tintColor} />;
+          return <FontAwesome name="map" size={23} color={tabInfo.tintColor} />;
         },
       },
     },
@@ -59,7 +93,7 @@ const ButtomNavigator = createBottomTabNavigator(
       navigationOptions: {
         tabBarIcon: (tabInfo) => {
           return (
-            <FontAwesome name='list-ul' size={25} color={tabInfo.tintColor} />
+            <FontAwesome name="list-ul" size={25} color={tabInfo.tintColor} />
           );
         },
       },
@@ -67,10 +101,11 @@ const ButtomNavigator = createBottomTabNavigator(
     CreateNewPost: {
       screen: CreateNewPostScreen,
       navigationOptions: {
+        tabBarLabel: "Create New",
         tabBarIcon: (tabInfo) => {
           return (
             <FontAwesome
-              name='plus-square'
+              name="plus-square"
               size={27}
               color={tabInfo.tintColor}
             />
@@ -84,7 +119,7 @@ const ButtomNavigator = createBottomTabNavigator(
         tabBarIcon: (tabInfo) => {
           return (
             <Ionicons
-              name='md-chatbubbles'
+              name="md-chatbubbles"
               size={29}
               color={tabInfo.tintColor}
             />
@@ -93,11 +128,11 @@ const ButtomNavigator = createBottomTabNavigator(
       },
     },
     Login: {
-      screen: LoginNavigator,
+      screen: ProfileNavigator,
       navigationOptions: {
         tabBarIcon: (tabInfo) => {
           return (
-            <FontAwesome name='user' size={27} color={tabInfo.tintColor} />
+            <FontAwesome name="user" size={27} color={tabInfo.tintColor} />
           );
         },
       },
