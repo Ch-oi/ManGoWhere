@@ -1,20 +1,33 @@
-import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import MainNavigator from "./navigation/MainNavigator";
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { enableScreens, useScreens } from 'react-native-screens';
+import * as Font from 'expo-font';
+import { AppLoading } from 'expo';
 
-import { enableScreens } from "react-native-screens";
+import MainNavigator from './navigation/MainNavigator';
 
 enableScreens();
+useScreens();
+
+const fetchFonts = () => {
+  return Font.loadAsync({
+    'aller-rg': require('./assets/fonts/Aller_Rg.ttf'),
+    'aller-bd': require('./assets/fonts/Aller_Bd.ttf'),
+  });
+};
 
 export default function App() {
-  return (
-    // <View style={styles.container}>
-    //   <Text>Open up App.js to start working on your app!</Text>
-    //   <StatusBar style="auto" />
-    // </View>
-    <MainNavigator />
-  );
+  const [fontLoaded, setFontLoaded] = useState(false);
+
+  if (!fontLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setFontLoaded(true)}
+      />
+    );
+  }
+  return <MainNavigator />;
 }
 
 const styles = StyleSheet.create({});

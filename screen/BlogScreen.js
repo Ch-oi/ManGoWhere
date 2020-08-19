@@ -1,8 +1,8 @@
-import React from "react";
-import { View, StyleSheet, FlatList } from "react-native";
-import defaultStyles from "../constants/default-styles";
-import { POSTS } from "../data/dummy-data";
-import PostGridTile from "../components/Post/PostGridTile";
+import React from 'react';
+import { View, StyleSheet, FlatList } from 'react-native';
+import defaultStyles from '../constants/default-styles';
+import { POSTS } from '../data/dummy-data';
+import PostGridTile from '../components/Post/PostGridTile';
 
 const BlogScreen = (props) => {
   const renderGridItem = (itemData) => {
@@ -11,7 +11,7 @@ const BlogScreen = (props) => {
         item={itemData.item}
         onSelect={() => {
           props.navigation.navigate({
-            routeName: "Post",
+            routeName: 'Post',
             params: {
               ...itemData.item,
             },
@@ -35,7 +35,7 @@ const BlogScreen = (props) => {
 };
 
 // BlogScreen.navigationOptions = {
-//   headerTitle: "dick",
+//   headerTitle: "nice picture",
 //   headerStyle: {
 //     backgroundColor: Colors.primary,
 //   },
@@ -43,7 +43,7 @@ const BlogScreen = (props) => {
 
 const styles = StyleSheet.create({
   screen: defaultStyles.screen,
-  postsContainer: { width: "95%" },
+  postsContainer: { width: '95%' },
 });
 
 export default BlogScreen;
