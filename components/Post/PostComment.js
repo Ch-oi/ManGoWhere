@@ -1,12 +1,13 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
 import defaultStyles from "../../constants/default-styles";
+import { AllerRg } from "../custom-text";
 
 const PostComment = ({ comment }) => {
   return (
     <View style={styles.container}>
-      <Text>{comment.user_name}</Text>
-      <Text>{comment.body}</Text>
+      <AllerRg>{comment.user_name}</AllerRg>
+      <AllerRg>{comment.body}</AllerRg>
     </View>
   );
 };

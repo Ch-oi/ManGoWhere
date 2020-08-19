@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import defaultStyles from "../constants/default-styles";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
-import { CustomHeaderButton2 } from "../components/headerButton";
+import { CustomHeaderButton2 } from "../components/header-button";
 
 const ProfileSettingScreen = (props) => {
   return (

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { View, Text, StyleSheet, FlatList } from "react-native";
 import defaultStyles from "../constants/default-styles";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
-import { CustomHeaderButton2 } from "../components/headerButton";
+import { CustomHeaderButton2 } from "../components/header-button";
 import PostGridTile from "../components/Post/PostGridTile";
 
 const ProfileScreen = (props) => {

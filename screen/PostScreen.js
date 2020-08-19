@@ -5,7 +5,7 @@ import defaultStyles from "../constants/default-styles";
 import MainPost from "../components/Post/MainPost";
 import PostComment from "../components/Post/PostComment";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
-import { CustomHeaderButton } from "../components/headerButton";
+import { CustomHeaderButton } from "../components/header-button";
 import { createFavPost } from "../store/actions/posts";
 
 const PostScreen = ({ navigation }) => {
