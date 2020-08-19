@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, Button } from "react-native";
 import defaultStyles from "../constants/default-styles";
 
 const MainMapScreen = (props) => {
-  console.log(props);
   return (
     <View style={styles.screen}>
       <Text>MainMapScreen</Text>
@@ -20,21 +19,9 @@ const MainMapScreen = (props) => {
         }}
       ></Button>
       <Button
-        title="blog"
-        onPress={() => {
-          props.navigation.navigate({ routeName: "Blog" });
-        }}
-      ></Button>
-      <Button
         title="chatroom"
         onPress={() => {
           props.navigation.navigate({ routeName: "Chatroom" });
-        }}
-      ></Button>
-      <Button
-        title="login"
-        onPress={() => {
-          props.navigation.navigate({ routeName: "Login" });
         }}
       ></Button>
     </View>

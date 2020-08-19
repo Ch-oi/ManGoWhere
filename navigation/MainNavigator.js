@@ -2,6 +2,7 @@ import React from "react";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
+import { createDrawerNavigator } from "react-navigation-drawer";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 
 import defaultStyles from "../constants/default-styles";
@@ -14,6 +15,7 @@ import ChatroomScreen from "../screen/ChatroomScreen";
 import ProfileScreen from "../screen/ProfileScreen";
 import PostScreen from "../screen/PostScreen";
 import LoginScreen from "../screen/LoginScreen";
+import ProfileSettingScreen from "../screen/ProfileSettingScreen";
 
 const MapNavigator = createStackNavigator(
   {
@@ -24,7 +26,7 @@ const MapNavigator = createStackNavigator(
     Chatroom: ChatroomScreen,
     Post: PostScreen,
   },
-  { initialRouteName: "MainMap", ...defaultStyles.header }
+  { ...defaultStyles.header }
 );
 
 const LoginNavigator = createStackNavigator(
@@ -34,7 +36,18 @@ const LoginNavigator = createStackNavigator(
     Blog: BlogScreen,
     Post: PostScreen,
   },
-  { ...defaultStyles.header, initialRouteName: "Login" }
+  {
+    ...defaultStyles.header,
+    initialRouteName: "Login",
+    navigationOptions: {
+      drawerLabel: " ",
+      drawerIcon: (tabInfo) => {
+        return (
+          <FontAwesome name="user-circle" size={23} color={tabInfo.tintColor} />
+        );
+      },
+    },
+  }
 );
 
 const BlogNavigator = createStackNavigator(
@@ -44,6 +57,27 @@ const BlogNavigator = createStackNavigator(
   },
   { ...defaultStyles.header, initialRouteName: "Blog" }
 );
+
+const ProfileSettingNavigator = createStackNavigator(
+  {
+    Setting: ProfileSettingScreen,
+  },
+  { ...defaultStyles.header, navigationOptions: {} }
+);
+
+const ProfileNavigator = createDrawerNavigator(
+  {
+    Login: { screen: LoginNavigator },
+    Setting: ProfileSettingNavigator,
+  },
+  {
+    contentOptions: {
+      activeTintColor: Colors.accent,
+      inactiveTintColor: "#ccc",
+    },
+  }
+);
+
 const ButtomNavigator = createBottomTabNavigator(
   {
     Map: {
@@ -67,6 +101,7 @@ const ButtomNavigator = createBottomTabNavigator(
     CreateNewPost: {
       screen: CreateNewPostScreen,
       navigationOptions: {
+        tabBarLabel: "Create New",
         tabBarIcon: (tabInfo) => {
           return (
             <FontAwesome
@@ -93,7 +128,7 @@ const ButtomNavigator = createBottomTabNavigator(
       },
     },
     Login: {
-      screen: LoginNavigator,
+      screen: ProfileNavigator,
       navigationOptions: {
         tabBarIcon: (tabInfo) => {
           return (
