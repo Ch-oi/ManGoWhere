@@ -1,6 +1,6 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import defaultStyles from "../constants/default-styles";
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import defaultStyles from '../constants/default-styles';
 
 const CreateNewLocationScreen = (props) => {
   return (

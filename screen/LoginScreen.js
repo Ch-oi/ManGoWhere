@@ -1,15 +1,15 @@
-import React from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
-import defaultStyles from "../constants/default-styles";
+import React from 'react';
+import { View, Text, StyleSheet, Button } from 'react-native';
+import defaultStyles from '../constants/default-styles';
 
 const LoginScreen = (props) => {
   return (
     <View style={styles.screen}>
       <Text>LoginScreen</Text>
       <Button
-        title="profile"
+        title='profile'
         onPress={() => {
-          props.navigation.replace("Profile");
+          props.navigation.replace('Profile');
         }}
       ></Button>
     </View>

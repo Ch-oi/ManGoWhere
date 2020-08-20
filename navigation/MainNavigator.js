@@ -12,8 +12,9 @@ import BlogScreen from "../screen/BlogScreen";
 import CreateNewPostScreen from "../screen/CreateNewPostScreen";
 import CreateNewLocationScreen from "../screen/CreateNewLocationScreen";
 import ChatroomListScreen from "../screen/Chatroom/ChatroomListScreen";
+import ChatroomScreen from "../screen/Chatroom/ChatroomScreen";
 import ProfileScreen from "../screen/ProfileScreen";
-import PostScreen from "../screen/Blog/PostScreen";
+import PostScreen from "../screen/PostScreen";
 import LoginScreen from "../screen/LoginScreen";
 import ProfileSettingScreen from "../screen/ProfileSettingScreen";
 
@@ -56,6 +57,21 @@ const BlogNavigator = createStackNavigator(
     Post: PostScreen,
   },
   { ...defaultStyles.header, initialRouteName: "Blog" }
+);
+
+const ChatroomListNavigator = createStackNavigator(
+  {
+    ChatroomScreen: ChatroomScreen,
+    "Chatroom List": ChatroomListScreen,
+  },
+  { initialRouteName: "Chatroom List", ...defaultStyles.header }
+);
+
+const ChatroomNavigator = createStackNavigator(
+  {
+    Chatroom: ChatroomScreen,
+  },
+  { initialRouteName: "Chatroom", ...defaultStyles.header }
 );
 
 const ProfileSettingNavigator = createStackNavigator(
@@ -114,7 +130,7 @@ const ButtomNavigator = createBottomTabNavigator(
       },
     },
     ChatroomList: {
-      screen: ChatroomListScreen,
+      screen: ChatroomListNavigator,
       navigationOptions: {
         tabBarIcon: (tabInfo) => {
           return (
@@ -127,6 +143,7 @@ const ButtomNavigator = createBottomTabNavigator(
         },
       },
     },
+
     Login: {
       screen: ProfileNavigator,
       navigationOptions: {

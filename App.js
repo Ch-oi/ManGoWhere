@@ -1,20 +1,20 @@
-import MainNavigator from "./navigation/MainNavigator";
-import { createStore, combineReducers } from "redux";
-import { Provider } from "react-redux";
+import MainNavigator from './navigation/MainNavigator';
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
 // import logger from "redux-logger";
-import postsReducer from "./store/reducers/post";
-import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { enableScreens, useScreens } from "react-native-screens";
-import * as Font from "expo-font";
-import { AppLoading } from "expo";
+import postsReducer from './store/reducers/post';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { enableScreens, useScreens } from 'react-native-screens';
+import * as Font from 'expo-font';
+import { AppLoading } from 'expo';
 
 enableScreens();
 
 const fetchFonts = () => {
   return Font.loadAsync({
-    "aller-rg": require("./assets/fonts/Aller_Rg.ttf"),
-    "aller-bd": require("./assets/fonts/Aller_Bd.ttf"),
+    'aller-rg': require('./assets/fonts/Aller_Rg.ttf'),
+    'aller-bd': require('./assets/fonts/Aller_Bd.ttf'),
   });
 };
 
