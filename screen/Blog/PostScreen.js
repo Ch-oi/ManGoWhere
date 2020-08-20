@@ -1,12 +1,12 @@
 import React, { useEffect, useCallback } from "react";
 import { View, Text, StyleSheet, FlatList, ScrollView } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
-import defaultStyles from "../constants/default-styles";
-import MainPost from "../components/Post/MainPost";
-import PostComment from "../components/Post/PostComment";
+import defaultStyles from "../../constants/default-styles";
+import MainPost from "../../components/Post/MainPost";
+import PostComment from "../../components/Post/PostComment";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
-import { CustomHeaderButton } from "../components/header-button";
-import { createFavPost } from "../store/actions/posts";
+import { CustomHeaderButton } from "../../components/header-button";
+import { createFavPost } from "../../store/actions/posts";
 
 const PostScreen = ({ navigation }) => {
   const { id } = navigation.state.params;
