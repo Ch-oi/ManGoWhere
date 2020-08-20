@@ -8,7 +8,6 @@ const ChatroomScreen = (props) => {
   return (
     <>
       <ChatroomMessage />
-      <Input />
     </>
   );
 };

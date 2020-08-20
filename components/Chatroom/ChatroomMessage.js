@@ -57,10 +57,10 @@ const ChatroomMessage = (props) => {
               <Text>22:18</Text>
             </View>
             <View style={styles.textInputContainer}>
-              <TextInput
+              {/* <TextInput
                 placeholder='Type a message'
                 style={styles.textInput}
-              />
+              /> */}
             </View>
           </View>
         </TouchableWithoutFeedback>
