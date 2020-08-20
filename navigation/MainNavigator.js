@@ -13,7 +13,7 @@ import CreateNewPostScreen from "../screen/CreateNewPostScreen";
 import CreateNewLocationScreen from "../screen/CreateNewLocationScreen";
 import ChatroomListScreen from "../screen/Chatroom/ChatroomListScreen";
 import ProfileScreen from "../screen/ProfileScreen";
-import PostScreen from "../screen/PostScreen";
+import PostScreen from "../screen/Blog/PostScreen";
 import LoginScreen from "../screen/LoginScreen";
 import ProfileSettingScreen from "../screen/ProfileSettingScreen";
 
