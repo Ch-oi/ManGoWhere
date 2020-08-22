@@ -1,10 +1,11 @@
-import { POSTS, POSTDETAILS } from "../../data/dummy-data";
-import { CREATE_FAVPOST } from "../constants/action-types";
+import { POSTS, POSTDETAILS, CATEGORIES } from "../../data/dummy-data";
+import { CREATE_FAVPOST, CREATE_POST } from "../constants/action-types";
 
 const initialState = {
   posts: POSTS,
   filteredPosts: POSTS,
   postsDetails: POSTDETAILS,
+  categories: CATEGORIES,
   favoritePosts: [],
 };
 
@@ -26,6 +27,13 @@ const postsReducer = (state = initialState, action) => {
           favoritePosts: state.favoritePosts.concat(meal),
         };
       }
+    case CREATE_POST:
+      const newPosts = state.posts.concat(action.post);
+      return {
+        ...state,
+        newPosts,
+      };
+
     default:
       return state;
   }

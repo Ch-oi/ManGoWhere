@@ -1,5 +1,7 @@
 import Post from "../models/Post";
 import PostDetails from "../models/PostDetails";
+import Location from "../models/Location";
+import Category from "../models/Category";
 
 export const POSTS = [
   new Post(
@@ -106,4 +108,33 @@ export const POSTDETAILS = [
       },
     ]
   ),
+];
+
+export const LOCATIONS = [
+  new Location(1, "Art Lane", "上環壁畫街", 22.287205, 114.141426, "Lion Rock"),
+  new Location(
+    2,
+    "Western District Waterfront Pier",
+    "西環貨運碼頭",
+    22.288322,
+    114.13294,
+    "Lion Rock"
+  ),
+  new Location(3, "Lion Rock", "獅子山", 22.3521, 114.17769, "Lion Rock"),
+];
+
+export const CATEGORIES = [
+  new Category(1, "Art"),
+
+  new Category(2, "Culture"),
+
+  new Category(3, "Food"),
+
+  new Category(4, "Outdoor"),
+
+  new Category(5, "Sports"),
+
+  new Category(6, "Shopping"),
+
+  new Category(7, "Nature"),
 ];

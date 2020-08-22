@@ -8,13 +8,12 @@ import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import defaultStyles from "../constants/default-styles";
 import Colors from "../constants/Colors";
 import MainMapScreen from "../screen/MainMapScreen";
-import BlogScreen from "../screen/BlogScreen";
-import CreateNewPostScreen from "../screen/CreateNewPostScreen";
-import CreateNewLocationScreen from "../screen/CreateNewLocationScreen";
+import BlogScreen from "../screen/Blog/BlogScreen";
+import CreateNewScreen from "../screen/CreateNew/CreateNewScreen";
 import ChatroomListScreen from "../screen/Chatroom/ChatroomListScreen";
 import ChatroomScreen from "../screen/Chatroom/ChatroomScreen";
 import ProfileScreen from "../screen/ProfileScreen";
-import PostScreen from "../screen/PostScreen";
+import PostScreen from "../screen/Blog/PostScreen";
 import LoginScreen from "../screen/LoginScreen";
 import ProfileSettingScreen from "../screen/ProfileSettingScreen";
 
@@ -22,8 +21,7 @@ const MapNavigator = createStackNavigator(
   {
     MainMap: MainMapScreen,
     Blog: BlogScreen,
-    CreateNewPost: CreateNewPostScreen,
-    CreateNewLocation: CreateNewLocationScreen,
+    CreateNew: CreateNewScreen,
     ChatroomList: ChatroomListScreen,
     Post: PostScreen,
   },
@@ -57,6 +55,13 @@ const BlogNavigator = createStackNavigator(
     Post: PostScreen,
   },
   { ...defaultStyles.header, initialRouteName: "Blog" }
+);
+
+const CreateNewNavigator = createStackNavigator(
+  {
+    CreateNew: CreateNewScreen,
+  },
+  { ...defaultStyles.header, initialRouteName: "CreateNew" }
 );
 
 const ChatroomListNavigator = createStackNavigator(
@@ -114,8 +119,8 @@ const ButtomNavigator = createBottomTabNavigator(
         },
       },
     },
-    CreateNewPost: {
-      screen: CreateNewPostScreen,
+    CreateNew: {
+      screen: CreateNewNavigator,
       navigationOptions: {
         tabBarLabel: "Create New",
         tabBarIcon: (tabInfo) => {

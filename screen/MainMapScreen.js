@@ -6,16 +6,11 @@ const MainMapScreen = (props) => {
   return (
     <View style={styles.screen}>
       <Text>MainMapScreen</Text>
+
       <Button
-        title="newPost"
+        title="createNew"
         onPress={() => {
-          props.navigation.navigate({ routeName: "CreateNewPost" });
-        }}
-      ></Button>
-      <Button
-        title="newLocation"
-        onPress={() => {
-          props.navigation.navigate({ routeName: "CreateNewLocation" });
+          props.navigation.navigate({ routeName: "CreateNew" });
         }}
       ></Button>
       <Button
