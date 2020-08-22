@@ -4,12 +4,12 @@ import defaultStyles from '../../constants/default-styles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { AllerBd } from '../../components/custom-text';
 
-import ChatroomItem from '../../components/Chatroom/ChatroomItem';
+import ChatroomList from '../../components/Chatroom/ChatroomList';
 
-const ChatroomScreen = (props) => {
+const ChatroomListScreen = (props) => {
   return (
     <View style={styles.screen}>
-      <ChatroomItem navigation={props.navigation} />
+      <ChatroomList navigation={props.navigation} />
     </View>
   );
 };
@@ -20,4 +20,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ChatroomScreen;
+export default ChatroomListScreen;

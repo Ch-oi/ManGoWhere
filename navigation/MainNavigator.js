@@ -7,7 +7,7 @@ import { FontAwesome, Ionicons } from "@expo/vector-icons";
 
 import defaultStyles from "../constants/default-styles";
 import Colors from "../constants/Colors";
-import MainMapScreen from "../screen/MainMapScreen";
+import MainMapScreen from "../screen/MainMap/MainMapScreen";
 import BlogScreen from "../screen/Blog/BlogScreen";
 import CreateNewScreen from "../screen/CreateNew/CreateNewScreen";
 import ChatroomListScreen from "../screen/Chatroom/ChatroomListScreen";

@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { View, StyleSheet, FlatList, Text } from "react-native";
+
 import defaultStyles from "../../constants/default-styles";
 import PostGridTile from "../../components/Post/PostGridTile";
 
