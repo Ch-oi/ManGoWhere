@@ -2,6 +2,7 @@ import React from "react";
 import { Text, View, TextInput, StyleSheet } from "react-native";
 import { AllerRg } from "../custom-text";
 import SelectPicker from "react-native-form-select-picker";
+import MultiSelect from "react-native-multiple-select";
 
 const FormControl = (props) => {
   return (
@@ -9,22 +10,24 @@ const FormControl = (props) => {
       <AllerRg style={styles.label}>{props.children}</AllerRg>
       {props.type === "picker" ? (
         <SelectPicker
-          style={styles.picker}
-          selected={props.value}
           onValueChange={(value) => {
             props.onChange(value);
           }}
+          selected={props.value}
         >
-          {props.pickerItems.map((item) => {
-            return (
-              <SelectPicker.Item
-                key={item.id}
-                label={item.category ? item.category : item.en}
-                value={item.category ? item.category : item.en}
-              />
-            );
+          {props.pickerItems.map((location, i) => {
+            return <SelectPicker.Item key={location.id} {...location} />;
           })}
         </SelectPicker>
+      ) : props.type === "multi" ? (
+        <MultiSelect
+          items={props.pickerItems}
+          uniqueKey="id"
+          selectedItems={props.value}
+          onSelectedItemsChange={(value) => props.onChange(value)}
+          tagRemoveIconColor="#ccc"
+          tagBorderColor="#ccc"
+        ></MultiSelect>
       ) : (
         <TextInput
           value={props.value}

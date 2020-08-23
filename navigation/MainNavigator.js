@@ -16,6 +16,7 @@ import ProfileScreen from "../screen/ProfileScreen";
 import PostScreen from "../screen/Blog/PostScreen";
 import LoginScreen from "../screen/LoginScreen";
 import ProfileSettingScreen from "../screen/ProfileSettingScreen";
+import CameraScreen from "../screen/CreateNew/CameraScreen";
 
 const MapNavigator = createStackNavigator(
   {
@@ -60,6 +61,7 @@ const BlogNavigator = createStackNavigator(
 const CreateNewNavigator = createStackNavigator(
   {
     CreateNew: CreateNewScreen,
+    Camera: CameraScreen,
   },
   { ...defaultStyles.header, initialRouteName: "CreateNew" }
 );

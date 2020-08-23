@@ -16,6 +16,20 @@ export default {
     alignItems: "center",
     width: "100%",
   },
+  buttonContainer: {
+    height: 40,
+    justifyContent: "center",
+    alignItems: "flex-start",
+    width: "100%",
+    marginTop: 12,
+  },
+  button: {
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 4,
+    shadowColor: "black",
+    borderWidth: 1,
+  },
   header: {
     /* The header config from HomeScreen is now here */
     defaultNavigationOptions: {
